@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "gobold";
+  src: url("gobold.otf");
+}
+
+#name{
+  text-align: center;
+  color: white;
+  padding-top: 30vh;
+  text-shadow: 3px -3px #bdbdbd, -3px 3px #757575;
+  font-size: 7rem;
+  font-family: gobold;
+}
