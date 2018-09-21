@@ -9,11 +9,30 @@
   <div id="name">A A D I B A J P A I</div>
   <script type="text/javascript" src="https://jfenn.me/Scrurl/scrurl.js"></script>
   <script>
-  Scrurl.display("News Flash: I can't make websites", {
-  "scrolldelay": 200, //the delay (in ms) between each scroll update
-  "scrollamount": 1,  //the amount of characters to scroll on each update
-  "direction": "left" //the direction to scroll through the characters in
-  });
+  var isFocused = true;
+  scroll();
+
+  function scroll() {
+  	Scrurl.display("can't make nice websites", {
+  		"scrolldelay": 200,
+  		"scrollamount": 1,
+  		"direction": "left"
+  	});
+  }
+
+  window.onfocus = function() {
+  	if (!isFocused) {
+  		isFocused = true;
+  		scroll();
+  	}
+  };
+
+  window.onblur = function() {
+  	if (isFocused) {
+  		isFocused = false;
+  		Scrurl.display(null);
+  	}
+  };
   </script>
 </body>
 </html>
