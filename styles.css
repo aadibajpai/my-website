@@ -1,6 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    background-color: #202124;
 }
 
 #pic{
@@ -8,7 +9,7 @@ html, body {
   padding-left: 4vw;
   width: 90vw;
 }
-#bg {
+/* #bg {
     position: fixed;
     filter: brightness(120%);
     height: 100vh;
@@ -18,11 +19,19 @@ html, body {
     background-size: cover;
     background-color: #000000;
     z-index: -1;
+} */
+
+header {
+  position: fixed;
+  width: 100vw;
+  height: 12vh;
+  box-shadow: 0 2px 4px rgba(0,0,0,.5);
+  background-color: #202124;
 }
 
 .st0{fill:#1DE9B6;}
 .st1{fill:#BDBDBD;}
 .st2{fill:#757575;}
 .st3{fill:#212121;}
-.st4{fill:#616161;}
-.st5{fill:rgba(0,0,0,0.1);}
+.st4{fill:#dfe0e4;}
+.st5{fill:rgba(255,255,255,0.1);}
