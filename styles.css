@@ -1,12 +1,28 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 #pic{
   padding-top: 30vh;
-  padding-left: 2vw;
+  padding-left: 4vw;
   width: 90vw;
+}
+#bg {
+    position: fixed;
+    filter: brightness(120%);
+    height: 100%;
+    width: 100%;
+    background-image: url("assets/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #000000;
+    z-index: -1;
 }
 
 .st0{fill:#1DE9B6;}
 .st1{fill:#BDBDBD;}
 .st2{fill:#757575;}
-.st3{fill:#000000;}
-.st4{fill:#424242;}
+.st3{fill:#212121;}
+.st4{fill:#616161;}
 .st5{fill:rgba(0,0,0,0.1);}
