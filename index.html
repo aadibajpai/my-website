@@ -7,9 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<header id="header"><p>There will be a dark mode toggle here -->
-    <button id="darkM" onclick="toggle()">Enable Light Mode</button>
-</p>
+<header id="header">
+    <div class="cntr">
+        <span class="row press">
+            <input type="checkbox" id="unchecked" class="cbx hidden" value="Enable Light Mode" onclick="toggle()" autocomplete="off" checked>
+            <label for="unchecked" class="lbl">Dark&nbsp;Mode</label>
+        </span>
+    </div>
 </header>
   <div id="bg"></div>
   <div id="pic"><?xml version="1.0" encoding="utf-8"?>

@@ -1,7 +1,7 @@
 function toggle() {
-    var themeButton = document.getElementById("darkM");
-    if (themeButton.innerHTML === "Enable Light Mode"){
-        themeButton.innerHTML = "Enable Dark Mode";
+    var themeButton = document.getElementById("unchecked");
+    if (themeButton.value === "Enable Light Mode"){
+        themeButton.value = "Enable Dark Mode";
         document.body.style.backgroundColor = "#f5f5f5";
         var svg5 = document.getElementsByClassName('st5');
         for (var i = 0; i < svg5.length; i++) {
@@ -17,7 +17,7 @@ function toggle() {
         }
     }
     else {
-        themeButton.innerHTML = "Enable Light Mode";
+        themeButton.value = "Enable Light Mode";
         document.body.style.backgroundColor = "#202124";
         var svg5 = document.getElementsByClassName('st5');
         for (var i = 0; i < svg5.length; i++) {
