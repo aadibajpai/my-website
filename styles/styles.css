@@ -1,4 +1,4 @@
-html, body {
+body {
     margin: 0;
     padding: 0;
     background-color: #202124;
@@ -22,11 +22,26 @@ html, body {
 } */
 
 header {
-  position: fixed;
-  width: 100vw;
-  height: 12vh;
-  box-shadow: 0 2px 4px rgba(0,0,0,.5);
-  background-color: #202124;
+    position: fixed;
+    width: 100vw;
+    height: 12vh;
+    box-shadow: 0 2px 4px rgba(0,0,0,.5);
+    background-color: #202124;
+    font-family: Consolas, monospace;
+    color: whitesmoke;
+    vertical-align: center;
+    line-height: 12vh;
+    font-size: 1rem;
+}
+header > p {
+    font-family: Consolas, monospace;
+    color: whitesmoke;
+    line-height: 6vh;
+    font-size: 1rem;
+    padding-left: 3vw;
+}
+header > button {
+    background-color: rgb(29, 233, 182);
 }
 
 .st0{fill:#1DE9B6;}
