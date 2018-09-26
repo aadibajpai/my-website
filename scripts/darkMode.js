@@ -4,7 +4,7 @@ function toggle() {
         themeButton.value = "Enable Dark Mode";
         document.body.style.backgroundColor = "#f5f5f5";
         document.getElementById("header").style.backgroundColor = "#f5f5f5";
-        document.getElementById("spn").style.color = "#202124";
+        document.getElementById("spn").style.color = "rgba(33,33,33,0.8)";
         var svg5 = document.getElementsByClassName('st5');
         for (var i = 0; i < svg5.length; i++) {
             svg5[i].style.fill = "rgba(0, 0, 0, 0.1)";
