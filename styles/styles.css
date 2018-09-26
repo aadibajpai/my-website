@@ -33,14 +33,6 @@ header {
     line-height: 12vh;
     font-size: 1rem;
 }
-header > p {
-    font-family: Consolas, monospace;
-    color: whitesmoke;
-    line-height: 6vh;
-    font-size: 1rem;
-    padding-left: 3vw;
-    z-index: -1;
-}
 
 .st0{fill:#1DE9B6;}
 .st1{fill:#BDBDBD;}
@@ -66,7 +58,7 @@ header > p {
     width: 26px;
     height: 26px;
     border-radius: 100px;
-    background: #fff;
+    background: #202124;
     box-shadow: 0px 3px 3px rgba(0,0,0,0.05);
     content: '';
     transition: all 0.3s ease;
@@ -83,14 +75,24 @@ header > p {
 }
 .cntr {
     position: relative;
-    padding-left: 10vw;
-    padding-top: 4vh;
+    padding-left: 12vw;
+    padding-top: 8vh;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .hidden {
     display: none;
+}
+
+#spn {
+    font-size: 1.1rem;
+    padding-left: 4.5vw;
+    padding-top: 3.8vh;
+    position: fixed;
+    font-family: "Roboto", sans-serif;
+    color: whitesmoke;
+    z-index: 1;
 }
 
 
