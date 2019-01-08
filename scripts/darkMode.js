@@ -22,7 +22,7 @@ function toggle() {
         themeButton.value = "Enable Light Mode";
         document.body.style.backgroundColor = "#202124";
         document.getElementById("header").style.backgroundColor = "#202124";
-        document.getElementById("spn").style.color = "whitesmoke";
+//         document.getElementById("spn").style.color = "whitesmoke";
         var svg5 = document.getElementsByClassName('st5');
         for (var i = 0; i < svg5.length; i++) {
             svg5[i].style.fill = "rgba(255, 255, 255, 0.1)";
