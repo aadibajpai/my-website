@@ -73,6 +73,7 @@ header {
     left: 20px;
     background: #179588;
 }
+
 .cntr {
     position: relative;
     padding-left: 12vw;
@@ -85,14 +86,14 @@ header {
     display: none;
 }
 
-#spn {
-    font-size: 1.1rem;
-    padding-left: 4.5vw;
-    padding-top: 3.8vh;
-    position: fixed;
-    font-family: "Roboto", sans-serif;
-    color: whitesmoke;
-    z-index: 1;
-}
+/*#spn {*/
+    /*font-size: 1.1rem;*/
+    /*padding-left: 4.5vw;*/
+    /*padding-top: 3.8vh;*/
+    /*position: fixed;*/
+    /*font-family: "Roboto", sans-serif;*/
+    /*color: whitesmoke;*/
+    /*z-index: 1;*/
+/*}*/
 
 
