@@ -1,7 +1,13 @@
+:root {
+    --main-bg-dark: #202124;
+    --main-bg-light: #F5F5F5;
+    --accent-green: #1DE9B6;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #202124;
+    background-color: var(--main-bg-dark);
 }
 
 #pic{
@@ -26,7 +32,7 @@ header {
     width: 100vw;
     height: 12vh;
     box-shadow: 0 2px 4px rgba(0,0,0,.5);
-    background-color: #202124;
+    background-color: var(--main-bg-dark);
     font-family: Consolas, monospace;
     color: whitesmoke;
     vertical-align: center;
@@ -58,9 +64,10 @@ header {
     width: 26px;
     height: 26px;
     border-radius: 100px;
-    background: #202124;
+    background: var(--main-bg-dark);
     box-shadow: 0px 3px 3px rgba(0,0,0,0.05);
-    content: '';
+    color: #1DE9B6;
+    content: "itsLight";
     transition: all 0.3s ease;
 }
 .lbl:active:after {
@@ -72,6 +79,7 @@ header {
 .cbx:checked ~ label:after {
     left: 20px;
     background: #179588;
+    content: "itsDark";
 }
 
 .cntr {
@@ -97,5 +105,5 @@ header {
 }
 
 a[href$=".pdf"]:link, a[href$=".pdf"]:visited{
-    color: #1DE9B6;
+    color: var(--accent-green);
 }
