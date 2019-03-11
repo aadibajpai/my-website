@@ -1,9 +1,13 @@
 function toggle() {
+    if(!localStorage.getItem("mode")){
+        localStorage.setItem("mode", "dark");
+    }
     let themeButton = document.getElementById("unchecked");
     let svg5 = document.getElementsByClassName('st5');
     let svg3 = document.getElementsByClassName('st3');
     let svg4 = document.getElementsByClassName('st4');
     if (themeButton.value === "Enable Light Mode"){
+        localStorage.setItem("mode", "light");
         themeButton.value = "Enable Dark Mode";
         document.body.style.backgroundColor = "#f5f5f5";
         document.getElementById("header").style.backgroundColor = "#f5f5f5";
@@ -19,6 +23,7 @@ function toggle() {
         }
     }
     else {
+        localStorage.setItem("mode", "dark");
         themeButton.value = "Enable Light Mode";
         document.body.style.backgroundColor = "#202124";
         document.getElementById("header").style.backgroundColor = "#202124";
@@ -32,5 +37,12 @@ function toggle() {
         for (let i = 0; i < svg4.length; i++) {
             svg4[i].style.fill = "#dfe0e4";
         }
+    }
+}
+
+function checkMode(){
+    let mode = localStorage.getItem("mode");
+    if(mode === "light"){
+        document.getElementById("unchecked").click();
     }
 }
