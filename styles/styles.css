@@ -104,6 +104,6 @@ header {
     z-index: 1;
 }
 
-a[href$=".pdf"]:link, a[href$=".pdf"]:visited{
+a[href$="aadi_resume"]:link, a[href$="aadi_resume"]:visited{
     color: var(--accent-green);
 }
