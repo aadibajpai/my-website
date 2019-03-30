@@ -11,7 +11,7 @@ body {
 }
 
 #pic{
-  padding-top: 27vh;
+  padding-top: 25vh;
   padding-left: 4vw;
   width: 90vw;
 }
@@ -106,6 +106,8 @@ header {
 
 #me {
     font-family: Consolas, monospace;
+    padding-top: 1vh;
+    position: relative;
 }
 
 a[href$=".pdf"]:link, a[href$=".pdf"]:visited{
