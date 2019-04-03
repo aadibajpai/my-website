@@ -97,6 +97,7 @@ header {
 #spn {
     font-size: 1.1rem;
     padding-left: 4.5vw;
+    padding-right: 4.5vw;
     padding-top: 6vh;
     /*position: fixed;*/
     font-family: "Roboto", sans-serif;
