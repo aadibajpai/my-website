@@ -8,7 +8,7 @@ Scrurl.display = function(text, options, offset) {
 		
 		Scrurl.start = text.substring(0, offset).split(" ").join("_");
 		Scrurl.end = text.substring(offset, text.length).split(" ").join("_");
-		location.hash = Scrurl.end + "_" + Scrurl.start;
+		window.history.replaceState({}, "", "?" + Scrurl.end + "_" + Scrurl.start);
 	} else if (text != null) {
 		Scrurl.interval = setInterval(function() {
 			if (Scrurl.offset != null)
