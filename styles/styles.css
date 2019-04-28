@@ -109,6 +109,7 @@ header {
     font-family: Consolas, monospace;
     padding-top: 1vh;
     position: relative;
+    z-index: -1;
 }
 
 a[href$=".pdf"]:link, a[href$=".pdf"]:visited{
