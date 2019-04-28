@@ -7,7 +7,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--main-bg-dark);
+    background-color: var(--main-bg-light);
 }
 
 #pic{
@@ -32,7 +32,7 @@ header {
     width: 100vw;
     height: 12vh;
     box-shadow: 0 2px 4px rgba(0,0,0,.5);
-    background-color: var(--main-bg-dark);
+    background-color: var(--main-bg-light);
     font-family: Consolas, monospace;
     color: whitesmoke;
     vertical-align: center;
@@ -43,9 +43,9 @@ header {
 .st0{fill:#1DE9B6;}
 .st1{fill:#BDBDBD;}
 .st2{fill:#757575;}
-.st3{fill:#212121;}
-.st4{fill:#dfe0e4;}
-.st5{fill:rgba(255,255,255,0.1);}
+.st3{fill:#f5f5f5;}
+.st4{fill:#757575;}
+.st5{fill:rgba(0, 0, 0, 0.1);}
 
 /* button css */
 .lbl {
@@ -101,7 +101,7 @@ header {
     padding-top: 6vh;
     /*position: fixed;*/
     font-family: "Roboto", sans-serif;
-    color: whitesmoke;
+    color: rgba(33,33,33,0.8);
     z-index: 1;
 }
 
