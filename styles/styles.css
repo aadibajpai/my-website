@@ -4,6 +4,11 @@
     --accent-green: #1DE9B6;
 }
 
+@font-face {
+  font-family: 'cnsls';
+  src:  url('/assets/fonts/cnsls.ttf') format('truetype');
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -33,7 +38,7 @@ header {
     height: 12vh;
     box-shadow: 0 2px 4px rgba(0,0,0,.5);
     background-color: var(--main-bg-dark);
-    font-family: Consolas, monospace;
+    font-family: Consolas, cnsls, monospace;
     color: whitesmoke;
     vertical-align: center;
     line-height: 12vh;
@@ -106,7 +111,7 @@ header {
 }
 
 #me {
-    font-family: Consolas, monospace;
+    font-family: Consolas, cnsls,monospace;
     padding-top: 1vh;
     position: relative;
     z-index: -1;
