@@ -40,8 +40,7 @@ header {
     height: 12vh;
     box-shadow: 0 2px 4px rgba(0,0,0,.5);
     background-color: var(--main-bg-dark);
-    /*noinspection CssNoGenericFontName*/
-    font-family: Consolas, cnsls, Inconsolata;
+    font-family: Consolas, cnsls, monospace;
     color: whitesmoke;
     vertical-align: center;
     line-height: 12vh;
@@ -114,8 +113,7 @@ header {
 }
 
 #me {
-    /*noinspection CssNoGenericFontName*/
-    font-family: Consolas, cnsls, Inconsolata;
+    font-family: Consolas, cnsls, monospace;
     padding-top: 1vh;
     position: relative;
     z-index: -1;
