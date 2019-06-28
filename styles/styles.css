@@ -6,7 +6,9 @@
 
 @font-face {
   font-family: 'cnsls';
-  src:  url('/assets/fonts/cnsls.ttf') format('truetype');
+    src: url('/assets/fonts/cnsls.woff2') format('woff2'),
+    url('/assets/fonts/cnsls.woff') format('woff'),
+    url('/assets/fonts/cnsls.ttf') format('truetype');
 }
 
 body {
