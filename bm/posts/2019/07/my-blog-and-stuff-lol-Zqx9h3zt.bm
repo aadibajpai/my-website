@@ -1,0 +1,38 @@
+1562501234
+1562501234
+Zqx9h3zt
+
+
+Aadi Bajpai
+My Blog and stuff lol
+## Hello
+This is me
+**I am Aadi, you probably know that. MIT admit me.**
+/// Create your post below. Lines beginning with "///"
+/// will be stripped out.
+///
+/// Do not add any comments above the first seven lines. The first seven lines
+/// are special.
+///
+/// 1. The initial posting timestamp
+/// 2. The last modified date
+/// 3. The post id
+/// 4. Options for this post (feel free to change)
+/// 5. (Reserved for future use)
+/// 6. The author (feel free to change)
+/// 7. The title (feel free to change)
+///
+/// See https://github.com/pastly/bm/blob/master/doc/Options.md for help with valid
+/// options for line four.
+///
+/// Any remaining lines are considered the body. Any word
+/// preceeded by "@@" will be treated as a tag. In the final HTML page,
+/// tags will have the preceeding "@@" removed and hyperlinks added.
+///
+/// You may manually specify where to end the homepage preview of this post by
+/// placing "{preview-stop}" once somewhere. Otherwise, 300 words will
+/// be used. Place "{toc}" somewhere to have BM automatically generate a table of
+/// contents for you.
+///
+/// Other than these special rules, use markdown to format your post.
+

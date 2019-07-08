@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+source internal/globals.sh
+
+echo "${VERSION}"
+exit 0

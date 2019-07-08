@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+
+source internal/globals.sh
+
+set_editor
+
+TEMP="$(mktemp)"
+NOW=$(date +'%s')
+ID=$(generate_id)
+TITLE="My Newest Post"
+[[ "$@" != "" ]] && TITLE="$@"
+
+cat << EOF > ${TEMP}
+${NOW}
+${NOW}
+${ID}
+
+
+${DEFAULT_AUTHOR}
+${TITLE}
+EOF
+if [[ "${CREATE_HELP_VERBOSITY}" == "long" ]]
+then
+	cat << EOF >> ${TEMP}
+${COMMENT_CODE} Create your post below. Lines beginning with "${COMMENT_CODE}"
+${COMMENT_CODE} will be stripped out.
+${COMMENT_CODE}
+${COMMENT_CODE} Do not add any comments above the first seven lines. The first seven lines
+${COMMENT_CODE} are special.
+${COMMENT_CODE}
+${COMMENT_CODE} 1. The initial posting timestamp
+${COMMENT_CODE} 2. The last modified date
+${COMMENT_CODE} 3. The post id
+${COMMENT_CODE} 4. Options for this post (feel free to change)
+${COMMENT_CODE} 5. (Reserved for future use)
+${COMMENT_CODE} 6. The author (feel free to change)
+${COMMENT_CODE} 7. The title (feel free to change)
+${COMMENT_CODE}
+${COMMENT_CODE} See https://github.com/pastly/bm/blob/master/doc/Options.md for help with valid
+${COMMENT_CODE} options for line four.
+${COMMENT_CODE}
+${COMMENT_CODE} Any remaining lines are considered the body. Any word
+${COMMENT_CODE} preceeded by "${TAG_CODE}" will be treated as a tag. In the final HTML page,
+${COMMENT_CODE} tags will have the preceeding "${TAG_CODE}" removed and hyperlinks added.
+${COMMENT_CODE}
+${COMMENT_CODE} You may manually specify where to end the homepage preview of this post by
+${COMMENT_CODE} placing "${PREVIEW_STOP_CODE}" once somewhere. Otherwise, ${PREVIEW_MAX_WORDS} words will
+${COMMENT_CODE} be used. Place "${TOC_CODE}" somewhere to have BM automatically generate a table of
+${COMMENT_CODE} contents for you.
+${COMMENT_CODE}
+${COMMENT_CODE} Other than these special rules, use markdown to format your post.
+EOF
+elif [[ "${CREATE_HELP_VERBOSITY}" == "short" ]]
+then
+	cat << EOF >> ${TEMP}
+${COMMENT_CODE} Lines beginning with ${COMMENT_CODE} are comments and ignored.
+${COMMENT_CODE} ${TAG_CODE}foo-bar is a tag named foo-bar.
+${COMMENT_CODE} ${PREVIEW_STOP_CODE} to stop post preview instead of at ${PREVIEW_MAX_WORDS} words.
+${COMMENT_CODE} ${TOC_CODE} to generate a table of contents
+${COMMENT_CODE} Options on line four. See https://github.com/pastly/bm/blob/master/doc/Options.md
+EOF
+fi
+
+echo "" >> ${TEMP}
+
+"${ED}" "${TEMP}"
+
+read -p "Would you like to save this post? " ANSWER
+while [ 1 ]
+do
+	case $ANSWER in
+		[Yy]* )
+			POST_DATE=$(get_date ${TEMP})
+			YEAR=$(date --date=@${POST_DATE} +'%Y')
+			MONTH=$(date --date=@${POST_DATE} +'%m')
+			"${MKDIR}" ${MKDIR_FLAGS} "${POST_DIR}/${YEAR}/${MONTH}"
+			TITLE=$(get_title "${TEMP}" | to_lower | strip_punctuation | strip_space)
+			FILENAME="${POST_DIR}/${YEAR}/${MONTH}/${TITLE}${TITLE_SEPARATOR_CHAR}${ID}.${POST_EXTENSION}"
+			mv "${TEMP}" "${FILENAME}"
+			if [[ "${REBUILD_POLICY}" != "manual" ]]
+			then
+				./bm build all
+			else
+				echo "You must now run the following command to update the build"
+				echo "./bm build all"
+			fi
+			break;;
+		[Nn]* )
+			rm "${TEMP}"
+			break;;
+		* )
+			echo "Please answer yes or no"
+			read -p "Would you like to save this post? " ANSWER;;
+	esac
+done
+

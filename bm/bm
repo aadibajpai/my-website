@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+COMMAND="$1"
+shift
+
+HELP_COMMANDS=( -? -h --help )
+
+if [[ "${COMMAND}" == "" ]] || \
+   [[ " ${HELP_COMMANDS[@]} " =~ " ${COMMAND} " ]]
+then
+	source internal/globals.sh
+	echo "BM blog maker ${VERSION}"
+	echo "Code and docs at https://github.com/pastly/bm"
+fi
+
+VALID_COMMANDS=( build create edit list remove theme version )
+
+if [[ " ${VALID_COMMANDS[@]} " =~ " ${COMMAND} " ]]
+then
+	"./internal/${COMMAND}" "$@"
+else
+	echo "Valid commands are ${VALID_COMMANDS[@]}"
+	exit 1
+fi
+

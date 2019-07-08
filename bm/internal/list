@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+source internal/globals.sh
+
+if [[ ! -d "${POST_DIR}" ]]
+then
+	echo "No posts exist to list :("
+	exit 0
+fi
+
+if [[ "$@" != "" ]]
+then
+	search_posts "$@" |\
+	while read FILE
+	do
+		pretty_print_post_info "${FILE}"
+	done
+else
+	find "${POST_DIR}" -type f -name "*${SEARCH_VALUE}*.${POST_EXTENSION}" -print0 |\
+	sort_by_date |\
+	while read FILE
+	do
+		pretty_print_post_info "${FILE}"
+	done
+fi
+exit 0

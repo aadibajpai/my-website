@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+source internal/globals.sh
+
+SEARCH_VALUE="$@"
+SEARCH_VALUE="$(echo ${SEARCH_VALUE} | to_lower | strip_punctuation | strip_space)"
+
+NUM_FOUND_FILES=$(search_posts "$@" | wc --lines)
+
+if (( "${NUM_FOUND_FILES}" < "1" ))
+then
+	echo "Could not find post matching: $@"
+	exit 0
+
+elif [[ "${NUM_FOUND_FILES}" == "1" ]]
+then
+	FILE="$(search_posts "$@")"
+elif [[ "${MULTI_MATCH_STRAT}" == "newest" ]]
+then
+	FILE="$(search_posts "$@" | tail -n 1)"
+
+elif [[ "${MULTI_MATCH_STRAT}" == "oldest" ]]
+then
+	FILE="$(search_posts "$@" | head -n 1)"
+else
+	echo "Ambiguous search term: ${SEARCH_VALUE}"
+	while read FILE
+	do
+		pretty_print_post_info "${FILE}"
+	done < <(search_posts "$@")
+	exit 0
+fi
+
+[[ "${FILE}" == "" ]] && exit 0
+
+echo ""
+pretty_print_post_info "${FILE}"
+echo ""
+read -p "Are you sure you want to delete this post forever (a very long time)?" ANSWER
+while [ 1 ]
+do
+	case $ANSWER in
+		[Yy]* )
+			rm "${FILE}"
+			if [[ "${REBUILD_POLICY}" != "manual" ]]
+			then
+				./bm build rebuild
+			else
+				echo "You must now run the following commands to update the build"
+				echo "./bm build rebuild"
+			fi
+			break;;
+		* )
+			echo "Whew. That was close."
+			break;;
+	esac
+done

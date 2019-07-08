@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+
+source internal/globals.sh
+
+VALID_COMMANDS=( info list set )
+if [[ "$1" == "" ]]
+then
+	echo "Valid commadns are ${VALID_COMMANDS[@]}"
+	exit 1
+fi
+
+[ -L "${THEME_SYMLINK}" ] &&
+	SELECTED_THEME="$(realpath "${THEME_SYMLINK}")" ||
+	SELECTED_THEME=
+
+THEMES=( )
+INDEX="0"
+for THEME in $(find -L "${THEME_DIR}/" -mindepth 1 -maxdepth 1 -type d | grep -v "${THEME_SYMLINK}" | sort)
+do
+	THEMES+=( "${INDEX}/${THEME}" )
+	INDEX=$((INDEX+1))
+done
+
+if [[ "$1" == "list" ]]
+then
+
+	for THEME in ${THEMES[@]}
+	do
+		INDEX="$(echo ${THEME} | cut -d'/' -f 1)"
+		THEME="$(echo ${THEME} | cut -d'/' -f 2-)"
+		THEME_PATH="$(realpath "${THEME}")"
+		THEME_NAME="$(basename "${THEME}")"
+		THEME_META="${THEME_PATH}/metadata"
+		THEME_DESC="$(op_get "${THEME_META}" description 2>/dev/null)"
+		[[ "${SELECTED_THEME}" == "${THEME_PATH}" ]] &&
+			echo -n "--> " ||
+			echo -n "    "
+		[[ ! -z "${THEME_DESC}" ]] &&
+			echo "[${INDEX}] ${THEME_NAME}: ${THEME_DESC:0:50}" ||
+			echo "[${INDEX}] ${THEME_NAME}"
+	done
+
+elif [[ "$1" == "set" ]]
+then
+
+	[[ "$2" == "" ]] &&
+		echo "Need to provide an index" &&
+		exit 1
+	THEME="$(echo ${THEMES[$2]} | cut -d'/' -f 2-)"
+	THEME_PATH="$(realpath "${THEME}")"
+	THEME_NAME="$(basename "${THEME}")"
+	[[ "${SELECTED_THEME}" == "${THEME_PATH}" ]] && exit 0
+	[ -L "${THEME_SYMLINK}" ] && rm "${THEME_SYMLINK}"
+	ln -s "${THEME_NAME}" "${THEME_SYMLINK}"
+	touch "${THEME_PATH}"/*
+	if [[ "${REBUILD_POLICY}" != "manual" ]]
+	then
+		./bm build all
+	else
+		echo "You must now run the following command to update the build"
+		echo "./bm build all"
+	fi
+elif [[ "$1" == "info" ]]
+then
+	[[ "$2" == "" ]] &&
+		echo "Need to provide an index" &&
+		exit 1
+	THEME="$(echo ${THEMES[$2]} | cut -d'/' -f 2-)"
+	THEME_PATH="$(realpath "${THEME}")"
+	THEME_NAME="$(basename "${THEME}")"
+	THEME_META="${THEME_PATH}/metadata"
+	THEME_DESC="$(op_get "${THEME_META}" description 2>/dev/null)"
+	THEME_AUTHOR="$(op_get "${THEME_META}" author 2>/dev/null)"
+	THEME_VERSION="$(op_get "${THEME_META}" works_with 2>/dev/null)"
+	cat <<EOF
+Theme: ${THEME_NAME}
+By:    ${THEME_AUTHOR}
+Last tested with: ${THEME_VERSION}
+Located at: ${THEME_PATH}
+
+${THEME_DESC}
+EOF
+fi
+
