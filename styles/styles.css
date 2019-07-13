@@ -119,6 +119,6 @@ header {
     z-index: -1;
 }
 
-a[href$=".pdf"]:link, a[href$=".pdf"]:visited{
+#spn a:link, #spn a[href$=".pdf"]:visited{
     color: var(--accent-green);
 }
