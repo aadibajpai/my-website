@@ -119,6 +119,6 @@ header {
     z-index: -1;
 }
 
-#spn a:link, #spn a:visited{
+.uname, #spn a:link, #spn a:visited{
     color: var(--accent-green);
 }
