@@ -116,7 +116,6 @@ header {
     font-family: Consolas, cnsls, monospace;
     padding-top: 1vh;
     position: relative;
-    z-index: -1;
 }
 
 .uname, #spn a:link, #spn a:visited{
