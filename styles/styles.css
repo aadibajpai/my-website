@@ -45,6 +45,7 @@ header {
     vertical-align: center;
     line-height: 12vh;
     font-size: 1rem;
+    z-index: 1;
 }
 
 .st0{fill:#1DE9B6;}
@@ -109,7 +110,6 @@ header {
     /*position: fixed;*/
     font-family: "Roboto", sans-serif;
     color: whitesmoke;
-    z-index: 1;
 }
 
 #me {
