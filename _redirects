@@ -1,1 +1,2 @@
 /blog/* /blog/build/:splat 200
+/aadi_resume.pdf https://dynamiclatex.herokuapp.com/aadi_resume.pdf 200
