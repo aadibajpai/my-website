@@ -1,13 +1,14 @@
+let systemThemeToggle = false;
 function toggle() {
-    if(!localStorage.getItem("mode")){
-        localStorage.setItem("mode", "dark");
-    }
+    
     let themeButton = document.getElementById("unchecked");
     let svg5 = document.getElementsByClassName('st5');
     let svg3 = document.getElementsByClassName('st3');
     let svg4 = document.getElementsByClassName('st4');
     if (themeButton.value === "Enable Light Mode"){
-        localStorage.setItem("mode", "light");
+        if(!systemThemeToggle){
+            localStorage.setItem("mode", "light");
+        }
         themeButton.value = "Enable Dark Mode";
         document.body.style.backgroundColor = "#f5f5f5";
         document.getElementById("header").style.backgroundColor = "#f5f5f5";
@@ -38,10 +39,18 @@ function toggle() {
             svg4[i].style.fill = "#dfe0e4";
         }
     }
+    systemThemeToggle = false;
 }
 
 function checkMode(){
     let mode = localStorage.getItem("mode");
+    // If user hasn't made a choice, use default theme
+    if(mode === null){
+        // Check if system dark mode is on, otherwise use dark
+        mode = window.matchMedia('(prefers-color-scheme: light)').matches ? "light" : "dark";
+        // Don't save this as user preference
+        systemThemeToggle = true;
+    }
     if(mode === "light"){
         document.getElementById("unchecked").click();
     }
