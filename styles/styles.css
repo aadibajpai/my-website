@@ -121,3 +121,15 @@ header {
 .uname, #spn a:link, #spn a:visited{
     color: var(--accent-green);
 }
+
+#darkthemecurtain {
+    position: absolute;
+    display: none;
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    background: rgb(245, 245, 245);
+    transition: transform 200ms ease-out, opacity 160ms ease-out;
+    z-index: 998;
+    opacity: 1;
+}
