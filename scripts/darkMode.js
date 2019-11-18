@@ -54,7 +54,7 @@ function toggle() {
         }
         else {
             if(!systemThemeToggle){
-                localStorage.setItem("mode", "light");
+                localStorage.setItem("mode", "dark");
             }
             curtain.style.transform = "translate(19px, -3px)";
             curtain.style.background = "rgb(32, 33, 36)";
