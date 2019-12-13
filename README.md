@@ -8,7 +8,12 @@ It pays off hopefully.
 
 - Has a pretty nice **dark mode** if you're into that. I love it personally.
 
-WIP Project, hopefully will be done by college apps.
+#### web trickery
+The pièce de résistance is the landing graphic, which is an image but also has 
+separate links and supports the dark mode as well.
+
+That is made possible by a clever hack of sorts, the image is nothing but a SVG, 
+and SVGs are nothing but XMLs, and XMLs support styling 😛
 
 Let me know what you think.
 
