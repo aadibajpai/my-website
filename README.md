@@ -8,7 +8,7 @@ It pays off hopefully.
 
 - Has a pretty nice **dark mode** if you're into that. I love it personally.
 
-#### web trickery
+### web trickery
 The pièce de résistance is the landing graphic, which is an image but also has 
 separate links and supports the dark mode as well.
 
