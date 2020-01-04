@@ -10,6 +10,7 @@ function toggle() {
     curtain.style.left = toggleSize.left + "px";
     buttonLabel.style.zIndex = "999";
     curtain.style.display = "block";
+    themeButton.disabled = true;
     requestAnimationFrame(() => {
         if (themeButton.value === "Enable Light Mode"){
             if(!systemThemeToggle){
@@ -38,6 +39,7 @@ function toggle() {
                         curtain.style.display = "";
                         curtain.style.transform = "";
                         curtain.style.background = "";
+                        themeButton.disabled = false;
                     }, { once: true });
                     curtain.style.opacity = "0";
                 });
@@ -80,6 +82,7 @@ function toggle() {
                         curtain.style.display = "";
                         curtain.style.transform = "";
                         curtain.style.background = "";
+                        themeButton.disabled = false;
                     }, { once: true });
                     curtain.style.opacity = "0";
                 });
