@@ -1,5 +1,6 @@
 let systemThemeToggle = false;
 function toggle() {
+    // Initialising the toggle animation
     let themeButton = document.getElementById("unchecked");
     const buttonLabel = document.querySelector("#unchecked ~ label");
     const curtain = document.getElementById("darkthemecurtain");
@@ -10,6 +11,7 @@ function toggle() {
     curtain.style.left = toggleSize.left + "px";
     buttonLabel.style.zIndex = "999";
     curtain.style.display = "block";
+    themeButton.disabled = true;
     requestAnimationFrame(() => {
         if (themeButton.value === "Enable Light Mode"){
             if(!systemThemeToggle){
@@ -17,6 +19,7 @@ function toggle() {
             }
             curtain.style.transform = "translate(-2px, -3px)";
             curtain.addEventListener('transitionend', () => {
+                // After ripple animation
                 themeButton.value = "Enable Dark Mode";
                 document.body.style.backgroundColor = "#f5f5f5";
                 document.getElementById("header").style.backgroundColor = "#f5f5f5";
@@ -32,17 +35,21 @@ function toggle() {
                 }
                 requestAnimationFrame(() => {
                     curtain.addEventListener('transitionend', () => {
+                        // Clean up after animation
                         buttonLabel.style.zIndex = "";
                         curtain.style.left = "";
                         curtain.style.opacity = "";
                         curtain.style.display = "";
                         curtain.style.transform = "";
                         curtain.style.background = "";
+                        themeButton.disabled = false;
                     }, { once: true });
+                    // Fade out overlay
                     curtain.style.opacity = "0";
                 });
             }, { once: true });
             requestAnimationFrame(() => {
+                // Start the ripple animation
                 const diameter = Math.sqrt(
                     Math.pow(window.innerWidth - toggleSize.left, 2) +
                     Math.pow(window.innerHeight - toggleSize.top, 2)
@@ -59,6 +66,7 @@ function toggle() {
             curtain.style.transform = "translate(19px, -3px)";
             curtain.style.background = "rgb(32, 33, 36)";
             curtain.addEventListener('transitionend', () => {
+                // After ripple animation
                 themeButton.value = "Enable Light Mode";
                 document.body.style.backgroundColor = "#202124";
                 document.getElementById("header").style.backgroundColor = "#202124";
@@ -74,17 +82,21 @@ function toggle() {
                 }
                 requestAnimationFrame(() => {
                     curtain.addEventListener('transitionend', () => {
+                         // Clean up after animation
                         buttonLabel.style.zIndex = "";
                         curtain.style.left = "";
                         curtain.style.opacity = "";
                         curtain.style.display = "";
                         curtain.style.transform = "";
                         curtain.style.background = "";
+                        themeButton.disabled = false;
                     }, { once: true });
+                    // Fade out overlay
                     curtain.style.opacity = "0";
                 });
             }, { once: true });
             requestAnimationFrame(() => {
+                // Start the ripple animation
                 const diameter = Math.sqrt(
                     Math.pow(window.innerWidth - toggleSize.left, 2) +
                     Math.pow(window.innerHeight - toggleSize.top, 2)
