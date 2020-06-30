@@ -2,12 +2,12 @@ let systemThemeToggle = false;
 
 function toggle() {
   // Initialising the toggle animation
-  const themeButton = document.getElementById("unchecked");
+  const themeButton = document.querySelector("#unchecked");
   const buttonLabel = document.querySelector("#unchecked ~ label");
-  const curtain = document.getElementById("darkthemecurtain");
-  const svg5 = document.getElementsByClassName("st5");
-  const svg3 = document.getElementsByClassName("st3");
-  const svg4 = document.getElementsByClassName("st4");
+  const curtain = document.querySelector("#darkthemecurtain");
+  const svg5 = document.querySelectorAll(".st5");
+  const svg3 = document.querySelectorAll(".st3");
+  const svg4 = document.querySelectorAll(".st4");
   const toggleSize = buttonLabel.getBoundingClientRect();
   curtain.style.left = `${toggleSize.left}px`;
   buttonLabel.style.zIndex = "999";
@@ -23,8 +23,8 @@ function toggle() {
         // After ripple animation
         themeButton.value = "Enable Dark Mode";
         document.body.style.backgroundColor = "#f5f5f5";
-        document.getElementById("header").style.backgroundColor = "#f5f5f5";
-        document.getElementById("spn").style.color = "rgba(33,33,33,0.8)";
+        document.querySelector("#header").style.backgroundColor = "#f5f5f5";
+        document.querySelector("#spn").style.color = "rgba(33,33,33,0.8)";
         svg5.forEach((el) => {
           el.style.fill = "rgba(0, 0, 0, 0.1)";
         });
@@ -73,8 +73,8 @@ function toggle() {
         // After ripple animation
         themeButton.value = "Enable Light Mode";
         document.body.style.backgroundColor = "#202124";
-        document.getElementById("header").style.backgroundColor = "#202124";
-        document.getElementById("spn").style.color = "whitesmoke";
+        document.querySelector("#header").style.backgroundColor = "#202124";
+        document.querySelector("#spn").style.color = "whitesmoke";
         svg5.forEach((el) => {
           el.style.fill = "rgba(255, 255, 255, 0.1)";
         });
@@ -128,7 +128,7 @@ function checkMode() {
     systemThemeToggle = true;
   }
   if (mode === "light") {
-    document.getElementById("unchecked").click();
+    document.querySelector("#unchecked").click();
   }
 }
 
