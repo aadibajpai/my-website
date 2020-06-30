@@ -133,7 +133,7 @@ function checkMode() {
 }
 
 window.addEventListener("load", () => {
-  checkMode();
   const checkbox = document.querySelector(".cbx");
   checkbox.addEventListener("click", () => toggle());
+  checkMode();
 });
