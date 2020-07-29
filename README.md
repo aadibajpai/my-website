@@ -17,4 +17,4 @@ and SVGs are nothing but XMLs, and XMLs support styling 😛
 
 Let me know what you think.
 
-Website at [aadibajpai.me](https://aadibajpai.com).
+Website at [aadibajpai.com](https://aadibajpai.com).
