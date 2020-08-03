@@ -22,9 +22,15 @@ function toggle() {
       curtain.addEventListener("transitionend", () => {
         // After ripple animation
         themeButton.value = "Enable Dark Mode";
+        // convert to light mode
         document.body.style.backgroundColor = "#f5f5f5";
         document.querySelector("#header").style.backgroundColor = "#f5f5f5";
         document.querySelector("#spn").style.color = "rgba(33,33,33,0.8)";
+        // change links color to underline only
+        const links = document.querySelectorAll(".uname, #spn a:link, #spn a:visited");
+        links.forEach((el) => {
+          el.style.color = "inherit";
+        });
         svg5.forEach((el) => {
           el.style.fill = "rgba(0, 0, 0, 0.1)";
         });
@@ -72,9 +78,15 @@ function toggle() {
       curtain.addEventListener("transitionend", () => {
         // After ripple animation
         themeButton.value = "Enable Light Mode";
+        // convert to dark mode
         document.body.style.backgroundColor = "#202124";
         document.querySelector("#header").style.backgroundColor = "#202124";
         document.querySelector("#spn").style.color = "whitesmoke";
+        // change links color to full accent
+        const links = document.querySelectorAll(".uname, #spn a:link, #spn a:visited");
+        links.forEach((el) => {
+          el.style.color = "var(--accent-green)";
+        });
         svg5.forEach((el) => {
           el.style.fill = "rgba(255, 255, 255, 0.1)";
         });
