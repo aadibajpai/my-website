@@ -18,6 +18,29 @@
     src: url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+::-webkit-scrollbar-thumb {
+    background: #8c8c8c;
+    border-radius: 50px;
+}
+::-webkit-scrollbar-track {
+    background: #6b6b6b;
+    border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover ::-webkit-scrollbar-track:active {
+    background: #6b6b6b;
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
 body {
     margin: 0;
     padding: 0;
