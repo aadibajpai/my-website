@@ -1,3 +1,4 @@
 /blog/* /blog/build/:splat 200
+/gh/* https://github.com/aadibajpai/:splat 200
 /gsoc/*  https://aadibajpai.github.io/gsoc/:splat 200
 /aadi_resume.pdf https://gabriel.aadibajpai.com/aadi_resume.pdf 200
