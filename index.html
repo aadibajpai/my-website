@@ -278,8 +278,9 @@
         <hr>
         <p>
             I am Aadi Bajpai. You probably know that like thrice by now.<br>
-            I study Computer Science, Math and hopefully Business at
-            <a target="_blank" rel="noopener" href="https://www.vanderbilt.edu/">Vanderbilt University</a>.<br>
+            <span id="uni">I study Computer Science, Math and Business (soon) at
+                <a target="_blank" rel="noopener" href="https://www.vanderbilt.edu/">Vanderbilt University</a>.
+            </span><br>
             There, I work on
             <a target="_blank" rel="noopener" href="https://vanderbilthustler.com/">The Vanderbilt Hustler</a> and
             <a target="_blank" rel="noopener" href="https://vandyhacks.org/">VandyHacks</a>.<br>
@@ -337,32 +338,28 @@
     </div>
 </div>
 <!--<script type="text/javascript" src="scripts/scrurl.js"></script>-->
-<!--<script>-->
-<!--let isFocused = true;-->
-<!--scroll();-->
+<script>
+  // get uni if possible
+  async function onLoad() {
+    await fetch("https://uni.aadibajpai.workers.dev")
+      .then(async (resp) => {
+        if (resp.ok) {
+          let txt = "Looks like you are from "
+          const uni = await resp.text()
+          if (uni.toLowerCase().includes("vanderbilt")) txt += "there too."
+          else txt += `from ${uni}, nice.`
+          document.getElementById("uni").innerHTML += txt;
+        }
+      })
+      .catch(err => console.log(err));
+  }
 
-<!--function scroll() {-->
-<!--Scrurl.display("i cannot make nice websites", {-->
-<!--"scrolldelay": 200,-->
-<!--"scrollamount": 1,-->
-<!--"direction": "left"-->
-<!--});-->
-<!--}-->
-
-<!--window.onfocus = function () {-->
-<!--if (!isFocused) {-->
-<!--isFocused = true;-->
-<!--scroll();-->
-<!--}-->
-<!--};-->
-
-<!--window.onblur = function () {-->
-<!--if (isFocused) {-->
-<!--isFocused = false;-->
-<!--Scrurl.display(null);-->
-<!--}-->
-<!--};-->
-<!--</script>-->
+  if (document.readyState !== 'loading'){
+    onLoad();
+  } else {
+    document.addEventListener('DOMContentLoaded', onLoad);
+  }
+</script>
 <script type="text/javascript" src="/scripts/darkMode.js"></script>
 <script src="//instant.page/1.1.0" type="module" integrity="sha384-EwBObn5QAxP8f09iemwAJljc+sU+eUXeL9vSBw1eNmVarwhKk2F9vBEpaN9rsrtp"></script>
 </body>
