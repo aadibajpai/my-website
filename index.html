@@ -347,7 +347,7 @@
           let txt = "Looks like you are from "
           const uni = await resp.text()
           if (uni.toLowerCase().includes("vanderbilt")) txt += "Vanderbilt too, nice."
-          else txt += `from ${uni}, nice.`
+          else txt += `${uni}, nice.`
           document.getElementById("uni").innerHTML += txt;
         }
       })
