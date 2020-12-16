@@ -337,28 +337,12 @@
             Yes there is Cloudflare scrape protection here but then people don't really read the text so maybe this way I get an email.</small>
     </div>
 </div>
-<!--<script type="text/javascript" src="scripts/scrurl.js"></script>-->
+<script type="text/javascript" src="/scripts/uni.js"></script>
 <script>
-  // get uni if possible
-  async function onLoad() {
-    await fetch("https://uni.aadibajpai.workers.dev")
-      .then(async (resp) => {
-        if (resp.ok) {
-          let txt = "Looks like you are from "
-          const uni = await resp.text()
-          if (uni.toLowerCase().includes("vanderbilt")) txt += "Vanderbilt too"
-          else txt += uni.startsWith("University") ? `the ${uni}` : `${uni}`
-          txt += ", nice."
-          document.getElementById("uni").innerHTML += txt;
-        }
-      })
-      .catch(err => console.log(err));
-  }
-
   if (document.readyState !== 'loading'){
-    onLoad();
+    uni();
   } else {
-    document.addEventListener('DOMContentLoaded', onLoad);
+    document.addEventListener('DOMContentLoaded', uni);
   }
 </script>
 <script type="text/javascript" src="/scripts/darkMode.js"></script>
