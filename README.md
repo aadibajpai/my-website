@@ -6,15 +6,15 @@
 It pays off hopefully.
 - I'm writing everything myself to learn firsthand. This is more about what I know than what I can make using code off the internet.
 
-- Has a pretty nice **dark mode** if you're into that. I love it personally.
+- Has a pretty nice **dark mode** if you're into that. I like it but I also like the light mode and am not sure which is default worthy.
 
 ### web trickery
-The pièce de résistance is the landing graphic, which is an image but also has 
+The landing graphic is cool I think, it is an image but also has 
 separate links and supports the dark mode as well.
 
 That is made possible by a clever hack of sorts, the image is nothing but a SVG, 
 and SVGs are nothing but XMLs, and XMLs support styling 😛
 
-Let me know what you think.
-
 Website at [aadibajpai.com](https://aadibajpai.com).
+
+btw this uses https://aadibajpai.com/gh/university so that might be interesting.
