@@ -69,7 +69,8 @@ header {
     width: 100vw;
     height: 12vh;
     box-shadow: 0 2px 4px rgba(0,0,0,.5);
-    background-color: var(--main-bg-dark);
+    /*background-color: var(--main-bg-dark);*/
+    backdrop-filter: blur(3px);
     font-family: Consolas, cnsls, monospace;
     color: whitesmoke;
     vertical-align: center;

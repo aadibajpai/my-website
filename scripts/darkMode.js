@@ -24,7 +24,6 @@ function toggle() {
         themeButton.value = "Enable Dark Mode";
         // convert to light mode
         document.body.style.backgroundColor = "#f5f5f5";
-        document.querySelector("#header").style.backgroundColor = "#f5f5f5";
         document.querySelector("#spn").style.color = "rgba(33,33,33,0.8)";
         // change links color to underline only
         const links = document.querySelectorAll(".uname, #spn a:link, #spn a:visited");
@@ -80,7 +79,6 @@ function toggle() {
         themeButton.value = "Enable Light Mode";
         // convert to dark mode
         document.body.style.backgroundColor = "#202124";
-        document.querySelector("#header").style.backgroundColor = "#202124";
         document.querySelector("#spn").style.color = "whitesmoke";
         // change links color to full accent
         const links = document.querySelectorAll(".uname, #spn a:link, #spn a:visited");
