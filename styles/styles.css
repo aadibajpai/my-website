@@ -124,7 +124,7 @@ header {
 
 .cntr {
     position: relative;
-    padding-left: 12vw;
+    padding-left: 15vw;
     padding-top: 8vh;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -136,9 +136,7 @@ header {
 
 #spn {
     font-size: 1.1rem;
-    padding-left: 4.5vw;
-    padding-right: 4.5vw;
-    padding-top: 6vh;
+    padding: 18vh 15vw 1vh;
     /*position: fixed;*/
     font-family: "Roboto", sans-serif;
     color: whitesmoke;
