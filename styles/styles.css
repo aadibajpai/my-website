@@ -105,8 +105,8 @@ header {
     border-radius: 100px;
     background: var(--main-bg-dark);
     box-shadow: 0 3px 3px rgba(0,0,0,0.05);
-    color: #1DE9B6;
-    content: "itsLight";
+    color: var(--main-bg-dark);
+    content: "light";
     transition: all 0.3s ease;
 }
 .lbl:active:after {
@@ -118,7 +118,8 @@ header {
 .cbx:checked ~ label:after {
     left: 20px;
     background: #179588;
-    content: "itsDark";
+    color: var(--accent-green);
+    content: "dark";
 }
 
 .cntr {
