@@ -5,16 +5,17 @@
   --content-padding: 20px;
 }
 
+/* Mobile-first approach */
 .main {
   padding: var(--content-padding);
-  width: auto;
+  width: 90%;
   max-width: 100%;
   margin: 0 auto;
   word-wrap: break-word;
 }
 
 body {
-  background-color: whitesmoke; /* solarized base3 */
+  background-color: var(--main-bg-light);
   color: #212121;
   font-size: 16px;
   line-height: 1.5;
@@ -22,47 +23,47 @@ body {
   margin: 0;
 }
 
-/* a:link,
-a:visited {
-  color: #212121;
-  text-decoration-color: var(--accent-green);
-} */
-
-/* Make links more tappable on mobile */
-a {
-  padding: 8px 0;
-  display: inline-block;
-  min-height: 44px; /* iOS minimum tappable area */
-}
-
-/* Improve spacing between elements */
+/* Make text more readable on mobile */
 p {
   margin: 1em 0;
+  font-size: 1rem;
 }
 
 h3 {
-  margin-top: 1.5em;
+  font-size: 1.5rem;
+  margin: 1.5em 0 1em;
 }
 
-/* Remove <br> tags and use margins instead */
-br {
-  display: none;
+/* Make links more tappable */
+a {
+  padding: 0.5em 0;
+  display: inline-block;
+  min-height: 44px;
+  touch-action: manipulation;
 }
 
-/* Media queries for larger screens */
+/* Remove fixed width/padding for mobile */
+#spn {
+  padding: 1rem !important;
+}
+
+/* Media query for tablets and up */
 @media screen and (min-width: 768px) {
   .main {
-    padding-left: 400px;
     width: 700px;
+    padding-left: 400px;
   }
 
-  br {
-    display: inline;
+  #spn {
+    padding-top: 12vh !important;
+    padding-left: 12vw !important;
   }
 }
 
-/* Improve small text readability */
-small {
-  font-size: 85%;
-  line-height: 1.4;
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--main-bg-dark);
+    color: whitesmoke;
+  }
 }
