@@ -27,6 +27,7 @@ body {
 p {
   margin: 1em 0;
   font-size: 1rem;
+  line-height: 1.6;
 }
 
 h3 {
@@ -36,7 +37,7 @@ h3 {
 
 /* Make links more tappable */
 a {
-  padding: 0.5em 0;
+  padding: 0.25em 0;
   display: inline-block;
   min-height: 44px;
   touch-action: manipulation;
@@ -66,4 +67,9 @@ a {
     background-color: var(--main-bg-dark);
     color: whitesmoke;
   }
+}
+
+/* Remove previous br display: none rule */
+br {
+  display: inline;
 }
