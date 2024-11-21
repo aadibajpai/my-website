@@ -2,16 +2,24 @@
   --main-bg-dark: #202124;
   --main-bg-light: whitesmoke;
   --accent-green: #1de9b6;
+  --content-padding: 20px;
 }
 
 .main {
-  padding-left: 400px;
-  width: 700px;
+  padding: var(--content-padding);
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  word-wrap: break-word;
 }
 
 body {
   background-color: whitesmoke; /* solarized base3 */
   color: #212121;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
 }
 
 /* a:link,
@@ -19,3 +27,42 @@ a:visited {
   color: #212121;
   text-decoration-color: var(--accent-green);
 } */
+
+/* Make links more tappable on mobile */
+a {
+  padding: 8px 0;
+  display: inline-block;
+  min-height: 44px; /* iOS minimum tappable area */
+}
+
+/* Improve spacing between elements */
+p {
+  margin: 1em 0;
+}
+
+h3 {
+  margin-top: 1.5em;
+}
+
+/* Remove <br> tags and use margins instead */
+br {
+  display: none;
+}
+
+/* Media queries for larger screens */
+@media screen and (min-width: 768px) {
+  .main {
+    padding-left: 400px;
+    width: 700px;
+  }
+
+  br {
+    display: inline;
+  }
+}
+
+/* Improve small text readability */
+small {
+  font-size: 85%;
+  line-height: 1.4;
+}
